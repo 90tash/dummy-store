@@ -29,8 +29,8 @@ public class HomeController {
     // convert normal html page to template
     // pass this array to template
 
-    @GetMapping("/products")
-    public String product(Model model){
+    @GetMapping("/products/ordered")
+    public String productOrdered(Model model){
         List<String> productList = new ArrayList<>();
         productList.add("PS5");
         productList.add("Asus ROG");
@@ -38,5 +38,16 @@ public class HomeController {
         productList.add("HP OMEN");
         model.addAttribute("productList", productList);
         return "products";
+    }
+
+    @GetMapping("/products/unordered")
+    public String productUnordered(Model model){
+        List<String> productList = new ArrayList<>();
+        productList.add("PS5");
+        productList.add("Asus ROG");
+        productList.add("Lenovo LOQ");
+        productList.add("HP OMEN");
+        model.addAttribute("productList", productList);
+        return "unorder_Products";
     }
 }
