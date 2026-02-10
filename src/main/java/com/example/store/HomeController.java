@@ -11,6 +11,6 @@ public class HomeController {
     @ResponseBody
     public String greet(@PathVariable(required = false) String name){
         System.out.println("name variable is " + name);
-        return "index.html";
+        return "Hello " + name;
     }
 }
