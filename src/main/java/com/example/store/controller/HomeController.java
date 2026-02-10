@@ -24,11 +24,6 @@ public class HomeController {
         return "welcome";
     }
 
-    // how to show lists on html, create html
-    // how to create array/list in java, append/add elements to this array
-    // convert normal html page to template
-    // pass this array to template
-
     @GetMapping("/products")
     public String product(Model model, @RequestParam(required = false) boolean order){
         List<String> productList = new ArrayList<>();
@@ -37,10 +32,7 @@ public class HomeController {
         productList.add("Lenovo LOQ");
         productList.add("HP OMEN");
         model.addAttribute("productList", productList);
-        // model.addAttribute("order", order);
-        if(order){
-            return "products";
-        }
-        return "unorder_Products";
+        model.addAttribute("order", order);
+        return "products";
     }
 }

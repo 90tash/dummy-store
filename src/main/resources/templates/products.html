@@ -2,12 +2,17 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Products</title>
 </head>
 <body>
 <h1>Products</h1>
-<ol>
-    <li th:each="item : ${productList}" th:text="${item}">Placeholder Product</li>
+
+<ol th:if="${order == true}">
+    <li th:each="item : ${productList}" th:text="${item}">Placeholder</li>
 </ol>
+
+<ul th:if="${order == false}">
+    <li th:each="item : ${productList}" th:text="${item}">Placeholder</li>
+</ul>
 </body>
 </html>
