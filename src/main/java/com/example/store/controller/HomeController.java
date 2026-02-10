@@ -29,25 +29,18 @@ public class HomeController {
     // convert normal html page to template
     // pass this array to template
 
-    @GetMapping("/products/ordered")
-    public String productOrdered(Model model){
+    @GetMapping("/products")
+    public String product(Model model, @RequestParam(required = false) boolean order){
         List<String> productList = new ArrayList<>();
         productList.add("PS5");
         productList.add("Asus ROG");
         productList.add("Lenovo LOQ");
         productList.add("HP OMEN");
         model.addAttribute("productList", productList);
-        return "products";
-    }
-
-    @GetMapping("/products/unordered")
-    public String productUnordered(Model model){
-        List<String> productList = new ArrayList<>();
-        productList.add("PS5");
-        productList.add("Asus ROG");
-        productList.add("Lenovo LOQ");
-        productList.add("HP OMEN");
-        model.addAttribute("productList", productList);
+        // model.addAttribute("order", order);
+        if(order){
+            return "products";
+        }
         return "unorder_Products";
     }
 }
