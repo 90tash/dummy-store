@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class HomeController {
-    @RequestMapping("/{name}")
+    @RequestMapping("/welcome/{name}")
     @ResponseBody
     public String greet(@PathVariable(required = false) String name){
         System.out.println("name variable is " + name);
